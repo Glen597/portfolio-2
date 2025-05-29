@@ -1,7 +1,6 @@
 import Image from "next/image";
 import ContactCard from "./contacts-card";
 import { contactscardsData } from "@/app/lib/ContactsData";
-import Form from "next/Form"
 import ContactForm from "./contactForm";
 const ContactMe = ()=>{
     return(
