@@ -1,40 +1,30 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
-import { useMemo, useRef } from "react";
+import { motion } from "framer-motion";
 
 const categories = [
   { text: "Web Developer", icon: "/star.png" },
   { text: "Data Analyst", icon: "/star.png" },
   { text: "Discord Bot Developer", icon: "/star.png" },
-  { text: "Webscrapping", icon: null },
+  { text: "Webscrapping", icon: "/star.png"},
 ];
 
-export default function DesignCategories() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-
-  useAnimationFrame((t, delta) => {
-    const container = containerRef.current;
-    if (container) {
-      const width = container.scrollWidth / 2;
-      const currentX = x.get();
-      const newX = (currentX - delta * 0.05) % -width;
-      x.set(newX);
-    }
-  });
-
-  const duplicated = useMemo(() => [...categories, ...categories], []);
+const DesignCategories = () => {
+  const duplicated = [...categories, ...categories,...categories];
 
   return (
     <div className="relative overflow-hidden h-20">
       {/* Bande jaune */}
       <div className="relative z-10 bg-[#FEB33B] h-full flex items-center text-2xl whitespace-nowrap text-green-900 font-medium">
         <motion.div
-          ref={containerRef}
-          style={{ x }}
           className="flex space-x-12 px-6"
+          animate={{ x: ["%", "-80%"] }}
+          transition={{
+            duration: 60,
+            ease: "linear",
+            repeat: Infinity,
+          }}
         >
           {duplicated.map((item, index) => (
             <div
@@ -59,4 +49,6 @@ export default function DesignCategories() {
       <div className="absolute inset-0 -z-10 h-full bg-green-900 transform -skew-y-2" />
     </div>
   );
-}
+};
+
+export default DesignCategories;

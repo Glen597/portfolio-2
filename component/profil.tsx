@@ -3,12 +3,15 @@ import Hello from "./hello";
 
 const Profil = () => {
     return (
-        <div className="mt-5 grid grid-cols-2 w-full gap-[2rem] justify-items-center items-center z-10">
+        <div className="mt-5 flex md:flex-row flex-col w-full gap-[2rem] justify-items-center items-center z-10">
 
             {/*greeting speech*/}
-            <div className="flex flex-col ml-[3rem]">
+            <div className="flex flex-col md:ml-[3rem] mx-[20px] ">
                 <div>
-                    <Hello />
+                    <div className="flex md:justify-start justify-center">
+                        <Hello />
+                    </div>
+                    
                     <p className="font-bold md:text-7xl text-3xl ">I&apos;m <span className="italic text-yellow-400 underline">Benoit Mbole Ateba,</span>
                         <br />Software Engeneer<br />Based in Germany </p>
                     <p className="mt-[3rem] text-muted-foreground">I&apos;m an entry level Software Engineer with 2+ Years experience in the field collaborating in various open source projects and building personal projects.</p>

@@ -22,7 +22,7 @@ const ServiceCard = ({ title, description, imageSrc, allText}: ServiceCardProps)
     }, [expanded]);
     return ( 
         <div
-            className={` transition-all duration-500 ease-in-out rounded-xl flex flex-col  bg-stone-200 w-[380px] transform ${expanded ? 'h-[540px] translate-y-[-20px] ' : ' h-[370px] '}`}>
+            className={` transition-all duration-500 ease-in-out rounded-xl flex flex-col  bg-stone-200 md:w-[380px] w-[320px] transform ${expanded ? 'h-[540px] translate-y-[-20px] ' : ' h-[370px] '}`}>
             <Image className="rounded-full relative my-[30px]  mx-[30px]"
                 src={imageSrc}
                 alt={allText}
